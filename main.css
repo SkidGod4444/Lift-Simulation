@@ -1,0 +1,164 @@
+:root {
+    --animation-distance: -500px; 
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #cfcfcf;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Adjusted for a more realistic building height */
+  }
+  .heading {
+    text-align: center;
+    color: #333; /* A dark color for contrast */
+    font-size: 36px; /* Increased font size for visibility */
+    font-weight: bold; /* Bold font for emphasis */
+  }
+  
+  /* .form {
+    width: 20%;
+  } */
+  .form div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 10px; /* Added padding for spacing */
+    background-color: #F9F9F9; /* A light background for contrast */
+    border: 1px solid #E0E0E0; /* A subtle border for definition */
+    border-radius: 5px; /* Rounded corners for a modern look */
+  }
+  .form label {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333; /* A dark color for contrast */
+  }
+  .form input {
+    display: block;
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: #FFFFFF; /* A white background for contrast */
+  }
+  
+  .form .submit-btn {
+    display: inline-block;
+    width: 100%;
+    margin-left: 0px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background: #3e7afd; /* A vibrant color for the submit button */
+    color: #FFFFFF; /* White text for contrast */
+    font-size: 20px; /* Increased font size for visibility */
+    font-weight: bold; /* Bold font for emphasis */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease; /* Smooth transition for a modern feel */
+    &:hover {
+      background-color: #1555df; /* A darker shade on hover for depth */
+    }
+  }
+  .floors-container {
+    margin-bottom: 50px;
+    background-image: url('./assets/wall.jpg'); /* Use local assets for background image */
+  }
+  
+  .floors-container > div {
+    height: 120px;
+    border-bottom: 2px solid gray;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(213, 212, 212, 0.5); /* Decreased opacity */
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #6b6b6b; /* A subtle border for definition */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for a 3D effect */
+  }
+  .floors-container button {
+    display: block;
+    padding: 4px 8px;
+    margin: 4px;
+    margin-bottom: 8px;
+    background-color: #3e7afd; /* A white background for contrast */
+    border: 1px solid #6b6b6b; /* A subtle border for definition */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    font-size: 16px; /* Adjusted font size for visibility */
+    font-weight: bold; /* Bold font for emphasis */
+    cursor: pointer; /* Pointer cursor for interaction */
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #1555df;
+    }
+  }
+  
+  #floor-1 > .floor-label {
+    order: 2;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .floor-label {
+    order: 2;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  /* Lift Container */
+  .lift {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    box-sizing: border-box;
+    background-size: cover;
+    border: 2px solid black;
+    background: #8c8b8b;
+    display: flex;
+    overflow: hidden;
+    border-radius: 2px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for a 3D effect */
+  }
+  .lift-button {
+    width: relative;
+    height: 50px;
+    font-size: 28px;
+    font-weight: bold; /* Bold font for emphasis */
+    color: #FFFFFF; /* White text for contrast */
+    background-color: #db2f85; /* A vibrant color for the lift button */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease; /* Smooth transition for a modern feel */
+    &:hover {
+      background-color: #c53d5b; /* A darker shade on hover for depth */
+    }
+  }
+  .left-door,
+  .right-door {
+    box-sizing: border-box;
+    height: 100%;
+    background: #a4a3a3;
+    border: 1px solid black;
+    z-index: 1;
+    flex-grow: 1;
+    transition: all 2.5s ease-in-out;
+    border-radius: 2px; /* Rounded corners for a modern look */
+  }
+  
+  .left-move {
+    transform: translateX(-100%);
+  }
+  
+  .right-move {
+    transform: translateX(100%);
+  }
