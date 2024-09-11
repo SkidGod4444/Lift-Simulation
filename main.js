@@ -18,12 +18,12 @@ form.addEventListener('submit', function (event) {
       );
       return;
     }
-    if (numLifts > numFloors) {
-        alert(
-          'Number of lifts should be less than or equal to the number of floors.'
-        );
-        return;
-      }
+    // if (numLifts > numFloors) {
+    //     alert(
+    //       'Number of lifts should be less than or equal to the number of floors.'
+    //     );
+    //     return;
+    //   }
     
       mainContainer.style.display = 'none';
       generateFloors(numFloors);
