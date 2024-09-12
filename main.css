@@ -162,3 +162,19 @@
   .right-move {
     transform: translateX(100%);
   }
+  .back-btn {
+    position: flex;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #db2f85;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .back-btn:hover {
+    background-color: #c53d5b;
+  }
