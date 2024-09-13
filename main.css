@@ -66,6 +66,29 @@
       background-color: #1555df; /* A darker shade on hover for depth */
     }
   }
+
+  /* Back Button Styling */
+.back-btn {
+  display: none; 
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  font-size: 16px; 
+  font-weight: bold; /* Bold font */
+  color: #FFFFFF; /* White text */
+  background-color: #000000; /* Vibrant pink background */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for Back Button */
+.back-btn:hover {
+  background-color: #202020; /* Darker pink on hover */
+}
+
+
   .floors-container {
     margin-bottom: 50px;
     background-image: url('./assets/wall.jpg'); /* Use local assets for background image */
@@ -161,20 +184,4 @@
   
   .right-move {
     transform: translateX(100%);
-  }
-  .back-btn {
-    position: flex;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #db2f85;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .back-btn:hover {
-    background-color: #c53d5b;
   }

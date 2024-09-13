@@ -1,92 +1,100 @@
 const form = document.querySelector('.form');
 const floorsContainer = document.querySelector('.floors-container');
 const mainContainer = document.querySelector('.main-container');
+const backButton = document.querySelector('.back-btn'); // Select the back button
 const lifts = [];
 const pendingQueue = [];
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
-  
+
     const numFloorsInput = document.getElementById('floors');
     const numLiftsInput = document.getElementById('lifts');
     const numFloors = Number(numFloorsInput.value);
     const numLifts = Number(numLiftsInput.value);
-  
+
     if (!numLifts || !numFloors || numFloors < 1 || numLifts < 1) {
-      alert(
-        'Please enter valid values for both number of floors and number of lifts.'
-      );
-      return;
+        alert('Please enter valid values for both number of floors and number of lifts.');
+        return;
     }
-    // if (numLifts > numFloors) {
-    //     alert(
-    //       'Number of lifts should be less than or equal to the number of floors.'
-    //     );
-    //     return;
-    //   }
+
+    // Hide the form and show the back button
+    mainContainer.style.display = 'none';
+    backButton.style.display = 'block'; // Show the back button
+    generateFloors(numFloors);
+    generateLifts(numLifts);
+});
+
+// Add an event listener to the back button
+backButton.addEventListener('click', function () {
+    // Show the form and hide the back button
+    mainContainer.style.display = 'flex';
+    backButton.style.display = 'none';
     
-      mainContainer.style.display = 'none';
-      generateFloors(numFloors);
-      generateLifts(numLifts);
-    });
-    function generateFloors(numFloors) {
-        for (let floor = numFloors; floor >= 1; floor--) {
-          const floorDiv = document.createElement('div');
-          const floorContent = document.createElement('div');
-          floorContent.classList.add('floor-content');
-      
-          if (floor !== numFloors) {
+    // Clear the lifts and floors
+    floorsContainer.innerHTML = '';  // Clear the generated floors and lifts
+    lifts.length = 0;  // Reset lifts array
+    pendingQueue.length = 0;  // Reset the queue
+});
+
+function generateFloors(numFloors) {
+    for (let floor = numFloors; floor >= 1; floor--) {
+        const floorDiv = document.createElement('div');
+        const floorContent = document.createElement('div');
+        floorContent.classList.add('floor-content');
+
+        if (floor !== numFloors) {
             const upButton = document.createElement('button');
             upButton.textContent = 'UP';
             upButton.classList.add('lift-button', 'up-button');
             floorContent.appendChild(upButton);
-          }
-      
-          if (floor !== 1) {
+        }
+
+        if (floor !== 1) {
             const downButton = document.createElement('button');
             downButton.textContent = 'DOWN';
             downButton.classList.add('lift-button', 'down-button');
             floorContent.appendChild(downButton);
-          }
-      
-          const floorLabel = document.createElement('div');
-          floorLabel.textContent = `Floor ${floor}`;
-          floorLabel.classList.add('floor-label');
-          // floorDiv.classList.add('floor')
-          floorDiv.id = `floor-${floor}`;
-          floorDiv.appendChild(floorContent);
-          floorDiv.appendChild(floorLabel);
-          floorsContainer.appendChild(floorDiv);
         }
-      }
-      function generateLifts(numLifts) {
-        const firstFloor = document.getElementById('floor-1');
-        for (let lift = 1; lift <= numLifts; lift++) {
-          const liftElement = document.createElement('div');
-          liftElement.classList.add('lift');
-          liftElement.id = `lift-${lift}`;
-      
-          const liftDoorOpening = document.createElement('div');
-          liftDoorOpening.classList.add('lift-door', 'left-door');
-          liftElement.appendChild(liftDoorOpening);
-      
-          const liftDoorClosing = document.createElement('div');
-          liftDoorClosing.classList.add('lift-door', 'right-door');
-          liftElement.appendChild(liftDoorClosing);
-          liftElement.style.position = 'relative';
-          firstFloor.appendChild(liftElement);
-      
-          lifts.push({
+
+        const floorLabel = document.createElement('div');
+        floorLabel.textContent = `Floor ${floor}`;
+        floorLabel.classList.add('floor-label');
+        floorDiv.id = `floor-${floor}`;
+        floorDiv.appendChild(floorContent);
+        floorDiv.appendChild(floorLabel);
+        floorsContainer.appendChild(floorDiv);
+    }
+}
+
+function generateLifts(numLifts) {
+    const firstFloor = document.getElementById('floor-1');
+    for (let lift = 1; lift <= numLifts; lift++) {
+        const liftElement = document.createElement('div');
+        liftElement.classList.add('lift');
+        liftElement.id = `lift-${lift}`;
+
+        const liftDoorOpening = document.createElement('div');
+        liftDoorOpening.classList.add('lift-door', 'left-door');
+        liftElement.appendChild(liftDoorOpening);
+
+        const liftDoorClosing = document.createElement('div');
+        liftDoorClosing.classList.add('lift-door', 'right-door');
+        liftElement.appendChild(liftDoorClosing);
+        liftElement.style.position = 'relative';
+        firstFloor.appendChild(liftElement);
+
+        lifts.push({
             liftId: `lift-${lift}`,
             currentFloor: 1,
             moving: false,
             direction: null,
             stops: [],
-          });
-        }
-      
-        addLiftButtonListeners();
-      }
+        });
+    }
+
+    addLiftButtonListeners();
+}
       function addLiftButtonListeners() {
         const liftButtons = document.querySelectorAll('.lift-button');
       
