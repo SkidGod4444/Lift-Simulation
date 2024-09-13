@@ -10,6 +10,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   .main-container {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,6 +23,16 @@
     font-weight: bold; /* Bold font for emphasis */
   }
   
+  .horizontal-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.lift-simulation-container {
+  display: inline-block;
+  min-width: 100%;
+}
+
   /* .form {
     width: 20%;
   } */
@@ -90,12 +101,14 @@
 
 
   .floors-container {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 50px;
     background-image: url('./assets/wall.jpg'); /* Use local assets for background image */
   }
   
   .floors-container > div {
-    height: 120px;
+    height: 122px;
     border-bottom: 2px solid gray;
     display: flex;
     margin-left: 10px;
@@ -140,6 +153,7 @@
   /* Lift Container */
   .lift {
     position: relative;
+    margin-left: 40px;
     width: 100px;
     height: 120px;
     box-sizing: border-box;
